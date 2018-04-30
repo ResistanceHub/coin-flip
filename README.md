@@ -6,7 +6,7 @@
 
 Open this solution and modify it so that it simulates flipping a coin 1000 times, and then prints out how many times it landed on heads and how many times it landed on tails.
 
-You can either simulate flipping 1 coin 1000 times or 1000 coins 1 once. It depends on how you want to solve this problem.
+You can either simulate flipping 1 coin 1000 times or flip 1000 coins once. It depends on how you want to solve this problem.
 
 If this confuses you, just flip 1 coin 1000 times 😝
 

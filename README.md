@@ -1,6 +1,7 @@
-# Coin Flip 💰
+﻿# Coin Flip 💰
 
 ## The Challenge
+
 
 Open this solution and modify it so that it simulates flipping a coin 1000 times, and then prints out how many times it landed on heads and how many times it landed on tails.
 

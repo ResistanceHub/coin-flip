@@ -1,4 +1,4 @@
-﻿# Coin Flip 💰
+﻿# Coin Flip
 
 ![Scheme](https://d30y9cdsu7xlg0.cloudfront.net/png/98997-200.png)
 

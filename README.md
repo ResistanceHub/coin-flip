@@ -94,7 +94,7 @@ Then you are all good 👍
 
 ### Running the solution
 
-Next change into the coin-flip directory and then open the solution file. You do this from the command line with:
+Next change into the coin-flip directory, if you are not already in that directory, and then open the solution file. You do this from the command line with:
 
 ```
 cd coin-flip

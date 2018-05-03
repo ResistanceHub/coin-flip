@@ -88,9 +88,11 @@ git push -u origin HEAD
 
 Use `-u` to setup a `upstream branch`. From this point on you only need `git push` and `git pull` - you don't need to specify the branch anymore.
 
-You should be able to see your branch here: https://bitbucket.org/hubbledevelopment/coin-flip/branches/
+Interestingly, this branch does not show up in bitbucket under branches at this location: https://bitbucket.org/hubbledevelopment/coin-flip/branches/
 
-Then you are all good 👍
+It is possible that that is a bug in bitbucket. However if you go to source - https://bitbucket.org/hubbledevelopment/coin-flip/src/master/
+
+Then you should be able to select your branch from the dropdown. If you can see this, then you are all good 👍
 
 ### Running the solution
 

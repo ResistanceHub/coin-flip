@@ -10,11 +10,12 @@ namespace CoinFlip
 	{
 		static void Main(string[] args)
 		{
-			Random random = new Random(); 
+			Random random = new Random();
 
-			for (int i = 0; i < 5; i++)
+		    Console.WriteLine("\n flip coin 0 or 1:"); 
+            for (int i = 1; i <=100; i++)
 			{
-				int rnd = random.Next(0, 5); // https://msdn.microsoft.com/en-us/library/2dx6wyd4 - the upper bound is scluded, this will randomly produce one of these values: 0, 1, 2, 3, 4 - it will not produce 5
+				int rnd = random.Next(0, 2); // https://msdn.microsoft.com/en-us/library/2dx6wyd4 - the upper bound is scluded, this will randomly produce one of these values: 0, 1, 2, 3, 4 - it will not produce 5
 				Console.WriteLine(i.ToString() + ' ' + rnd);
 			}
 

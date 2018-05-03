@@ -10,7 +10,7 @@ namespace CoinFlip
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Flipping a coin 1000 times");
+			Console.WriteLine("======Flipping a coin 1000 times======");
 			CoinFlip();
 		}
 
@@ -34,9 +34,8 @@ namespace CoinFlip
 					noOfTails++;
 				}				
 			}
-			//Console.WriteLine(i.ToString() + ' ' + rnd);
-			Console.WriteLine("Heads ware flipped {0} times", noOfHeads);
-            Console.WriteLine("Tails was flipped {0} times", noOfTails);
+			Console.WriteLine("Heads were flipped {0} times", noOfHeads);
+            Console.WriteLine("Tails were flipped {0} times", noOfTails);
 			Console.ReadKey();
 		}
 	}

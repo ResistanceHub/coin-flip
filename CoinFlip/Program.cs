@@ -23,7 +23,11 @@ namespace CoinFlip
                 {
                     head = head + 1;
                 }
-                else tail = tail + 1;
+
+                else
+                {
+                    tail = tail + 1;
+                }
                 
             }
           

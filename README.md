@@ -9,8 +9,8 @@ Open this solution and modify it so that it simulates flipping a coin 1000 times
 The output should be similar to this:
 ```
 The results are:
-Heads: 20
-Tails: 80
+Heads: 200
+Tails: 800
 ```
 
 You can either simulate flipping 1 coin 1000 times or flip 1000 coins once. It depends on how you want to solve this problem.

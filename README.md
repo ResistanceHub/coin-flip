@@ -2,7 +2,7 @@
 
 ![Scheme](https://d30y9cdsu7xlg0.cloudfront.net/png/98997-200.png)
 
-## The Challenge
+## Step 1: Flip The Coin
 
 Open this solution and modify it so that it simulates flipping a coin 1000 times, and then prints out how many times it landed on heads and how many times it landed on tails.
 
@@ -131,4 +131,10 @@ git push
 
 Let us know on slack if you manager to make some progress, or if you need some help...
 
-# Good luck! 🐶
+## Step 2: Save the Results
+
+After once you have collected the results from flippnig the coin 1000 times, write these results to a text file. 
+
+Note: if you don't give the file a path it will most likely creat this file in the `bin/debug` directory. This is a directory inside `coin-flip`. This is not a problem, just look for it the nested folder instead of the base directory `coin-flip`.
+
+# Good luck! 

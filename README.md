@@ -144,7 +144,7 @@ Create a CSV file wich contains a list of each coin flip. This should be the fli
 Adjust your program to create a file which has the following content:
 
 ```
-Flip, Result
+Flip,Result
 1,Heads
 2,Heads
 3,Tails

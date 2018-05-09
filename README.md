@@ -147,7 +147,7 @@ Adjust your program to create a file which has the following content:
 Flip, Result
 1, Heads
 2, Heads
-3, Tails,
+3, Tails
 4, Heads
 5, Tails
 ```

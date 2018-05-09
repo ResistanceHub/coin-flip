@@ -137,4 +137,25 @@ After once you have collected the results from flippnig the coin 1000 times, wri
 
 Note: if you don't give the file a path it will most likely creat this file in the `bin/debug` directory. This is a directory inside `coin-flip`. This is not a problem, just look for it the nested folder instead of the base directory `coin-flip`.
 
+## Step 3: CSV
+
+Create a CSV file wich contains a list of each coin flip. This should be the flip number and the result. A CSV (Comma Seperated Value) is a plain text file and the values are seperated by commas. There is a bit more to them but this will be good enough for us.
+
+Adjust your program to create a file which has the following content:
+
+```
+Flip, Result
+1, Heads
+2, Heads
+3, Tails,
+4, Heads
+5, Tails
+```
+Etc
+
+
+Once this has been done you should be able to open this filr in Excel. Use the table filters to verify your totals e.g. how many heads and tails you counted.
+
+Let me know on slack if you get stuck.
+
 # Good luck! 

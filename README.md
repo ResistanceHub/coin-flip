@@ -139,9 +139,9 @@ Note: if you don't give the file a path it will most likely creat this file in t
 
 ## Step 3: CSV
 
-Create a CSV file wich contains a list of each coin flip. This should be the flip number and the result. A CSV (Comma Seperated Value) is a plain text file and the values are seperated by commas. There is a bit more to them but this will be good enough for us.
+Adjust your program to create a CSV file wich contains a list of each coin flip. This should be the flip number and the result. A CSV (Comma Seperated Value) is a text file and the values are seperated by commas. There is a bit more to them but this will be good enough for us.
 
-Adjust your program to create a file which has the following content:
+Adjust your program to create a file (flips.csv) which has the following content:
 
 ```
 Flip,Result

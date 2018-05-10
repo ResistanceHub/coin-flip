@@ -154,8 +154,10 @@ Flip,Result
 Etc
 
 
-Once this has been done you should be able to open this filr in Excel. Use the table filters to verify your totals e.g. how many heads and tails you counted.
+Once this has been done you should be able to open this file in Excel. Use the Excel table filters to verify your totals e.g. how many heads and tails your program displayed.
 
-Let me know on slack if you get stuck.
+Let me know on slack if you get stuck...
 
 # Good luck! 
+
+![Scheme](https://vignette.wikia.nocookie.net/glee/images/d/d5/281735_1342370254-coin-flip.gif.gif/revision/latest?cb=20130929223343)

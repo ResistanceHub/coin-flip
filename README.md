@@ -158,7 +158,7 @@ Once this has been done you should be able to open this file in Excel. Use the E
 
 Let me know on slack if you get stuck...
 
-## Step 4: Use an Enum
+## Step 4: Enum
 
 There is a good chance that you are using in 0 and 1 to represent heads and tails. 
 

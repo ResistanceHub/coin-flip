@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 
@@ -11,7 +12,8 @@ namespace CoinFlip
             Random random = new Random();
             int head = 0;
             int tail = 0;
-            string path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.txt";
+            string path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
+            List<string>flippingList = new List<string>();
 
             //console print title
             Console.WriteLine("Flip 1 coin 1000 times with Head (0) or Tails (1):");
@@ -19,16 +21,19 @@ namespace CoinFlip
             //file print result
             using (StreamWriter flippingresults = new StreamWriter(path)) {
                 flippingresults.WriteLine("Flip 1 coin 1000 times with Head (0) or Tails (1):");
-                for (int i = 1; i <= 100; i++) {
+                for (int i = 1; i <= 100; i++)
+                {
                     int
                         rnd = random.Next(0,
                             2); // https://msdn.microsoft.com/en-us/library/2dx6wyd4 - the upper bound is scluded, this will randomly produce one of these values: 0, 1
 
                     //console print detailed flipping result
-                    Console.WriteLine(i.ToString() + ' ' + rnd);
+                    Console.WriteLine(i.ToString() + "," + rnd);
+                    flippingList.Add(i.ToString() + "," + rnd);
+                   // Console.WriteLine(flippingList);
 
                     //file print detailed flipping result
-                    flippingresults.WriteLine(i.ToString() + " " + rnd);
+                    flippingresults.WriteLine(i.ToString() + "," + rnd);
 
                     if (rnd == 0) {
                         head = head + 1;

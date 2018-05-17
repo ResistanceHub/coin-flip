@@ -6,9 +6,7 @@ namespace CoinFlip
 {
 	class Program
 	{
-        private static object results;
-
-        static void Main(string[] args)
+       static void Main(string[] args)
 		{
 			Random random = new Random();
 		    int head = 0;

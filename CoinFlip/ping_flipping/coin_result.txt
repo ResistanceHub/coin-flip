@@ -1,4 +1,3 @@
 Flip 1 coin 1000 times with Head (0) or Tails (1):
-Total Heads 471
-Total Tails 529
-
+Total Heads 489
+Total Tails 511

@@ -158,6 +158,15 @@ Once this has been done you should be able to open this file in Excel. Use the E
 
 Let me know on slack if you get stuck...
 
+## Step 4: Use an Enum
+
+There is a good chance that you are using in 0 and 1 to represent heads and tails. 
+
+If so, please modify the program so that it uses an enum to represent heads and tails. 
+
+To make the most use of enums in this example, please read: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/enum
+
+
 # Good luck! 
 
 ![Scheme](https://vignette.wikia.nocookie.net/glee/images/d/d5/281735_1342370254-coin-flip.gif.gif/revision/latest?cb=20130929223343)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-
+using System.Runtime.Remoting.Messaging;
 
 namespace CoinFlip
 {
@@ -10,46 +10,50 @@ namespace CoinFlip
         static void Main(string[] args)
         {
             Random random = new Random();
-            int head = 0;
-            int tail = 0;
+            var heads = 0;
+            var tails = 0;
+
             string path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
-            List<string>flippingList = new List<string>();
+            List<string> flippingList = new List<string>();
 
             //console print title
             Console.WriteLine("Flip 1 coin 1000 times with Head (0) or Tails (1):");
-           
-            //file print result
-            using (StreamWriter flippingresults = new StreamWriter(path)) {
-                flippingresults.WriteLine("Flip 1 coin 1000 times with Head (0) or Tails (1):");
-                for (int i = 1; i <= 100; i++)
-                {
-                    int
-                        rnd = random.Next(0,
-                            2); // https://msdn.microsoft.com/en-us/library/2dx6wyd4 - the upper bound is scluded, this will randomly produce one of these values: 0, 1
 
+            //file print result
+            using (StreamWriter flippingresults = new StreamWriter(path))
+            {
+                flippingresults.WriteLine("Flip 1 coin 1000 times with Head (0) or Tails (1):");
+                for (var i = 1; i <= 1000; i++)
+                {
+                    var rnd = random.Next(0, 2); // https://msdn.microsoft.com/en-us/library/2dx6wyd4 - the upper bound is scluded, this will randomly produce one of these values: 0, 1                  
+                    var message = rnd == 0 ? "Heads" : "Tails";
                     //console print detailed flipping result
-                    Console.WriteLine(i.ToString() + "," + rnd);
-                    flippingList.Add(i.ToString() + "," + rnd);
+                    Console.WriteLine(i.ToString() + "," + message);
+                    flippingList.Add(i.ToString() + "," + message);
+
                    // Console.WriteLine(flippingList);
 
                     //file print detailed flipping result
-                    flippingresults.WriteLine(i.ToString() + "," + rnd);
+                    flippingresults.WriteLine(i.ToString() + "," + message);
 
-                    if (rnd == 0) {
-                        head = head + 1;
-                    } else {
-                        tail = tail + 1;
+                    if (rnd == 0)
+                    {
+                        heads = heads + 1;
+                    }
+                    else
+                    {
+                        tails = tails + 1;
                     }
 
                 }
 
                 //console print total
-                Console.WriteLine("Total Heads" + ' ' + head);
-                Console.WriteLine("Total Tails" + ' ' + tail);
+                Console.WriteLine("Total Heads" + " " + heads);
+                Console.WriteLine("Total Tails" + " " + tails);
 
                 //file print total
-                flippingresults.WriteLine("Total Heads" + " " + head);
-                flippingresults.WriteLine("Total Tails" + ' ' + tail);
+                flippingresults.WriteLine("Total Heads" + " " + heads);
+                flippingresults.WriteLine("Total Tails" + " " + tails);
             }
 
             Console.ReadKey();

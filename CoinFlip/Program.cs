@@ -12,15 +12,14 @@ namespace CoinFlip
             Random random = new Random();
             var heads = 0;
             var tails = 0;
-
-            string path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
-            List<string> flippingList = new List<string>();
+            var path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
+          
 
             //console print title
             Console.WriteLine("Flip 1 coin 1000 times with Head (0) or Tails (1):");
 
             //file print result
-            using (StreamWriter flippingresults = new StreamWriter(path))
+            using (var flippingresults = new StreamWriter(path))
             {
                 flippingresults.WriteLine("Flip 1 coin 1000 times with Head (0) or Tails (1):");
                 for (var i = 1; i <= 1000; i++)
@@ -29,22 +28,13 @@ namespace CoinFlip
                     var message = rnd == 0 ? "Heads" : "Tails";
                     //console print detailed flipping result
                     Console.WriteLine(i.ToString() + "," + message);
-                    flippingList.Add(i.ToString() + "," + message);
-
-                   // Console.WriteLine(flippingList);
-
                     //file print detailed flipping result
                     flippingresults.WriteLine(i.ToString() + "," + message);
 
                     if (rnd == 0)
-                    {
                         heads = heads + 1;
-                    }
                     else
-                    {
                         tails = tails + 1;
-                    }
-
                 }
 
                 //console print total

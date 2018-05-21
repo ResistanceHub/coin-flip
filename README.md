@@ -166,12 +166,10 @@ Either way, please modify the program so that it uses an enum to represent heads
 
 To make the most use of enums in this example, please read: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/enum
 
-Take speicific notice of:
-
-The underlying type specifies how much storage is allocated for each enumerator. However, an explicit cast is necessary to convert from enum type to an integral type. For example, the following statement assigns the enumerator Sun to a variable of the type int by using a cast to convert from enum to int.
+This is how you can convert from an int to an enum - https://stackoverflow.com/a/29488/259477
 
 ```
-int x = (int)Day.Sun;  
+MyEnum e = (MyEnum) 1;
 ```
 
 # Good luck! 

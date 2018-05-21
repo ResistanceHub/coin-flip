@@ -160,7 +160,7 @@ Let me know on slack if you get stuck...
 
 ## Step 4: Enum
 
-There is a good chance that you are using in 0 and 1 to represent heads and tails. 
+There is a good chance that you are using 0 and 1 to represent heads and tails. 
 
 If so, please modify the program so that it uses an enum to represent heads and tails. 
 

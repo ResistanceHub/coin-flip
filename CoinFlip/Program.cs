@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Runtime.Remoting.Messaging;
+using static CoinFlip.CoinFlip;
 
 namespace CoinFlip
 {
@@ -16,7 +14,7 @@ namespace CoinFlip
     {
         static void Main(string[] args)
         {
-            Random random = new Random();
+            var random = new Random();
             var heads = 0;
             var tails = 0;
             var path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
@@ -25,32 +23,24 @@ namespace CoinFlip
             //console print title
             Console.WriteLine("Flip 1 coin 1000 times with Heads (0) or Tails (1):");
 
-            //file print result
-           
+            //file print results          
             using (var flippingresults = new StreamWriter(path))
             {
+                //file print title
                 flippingresults.WriteLine("Flip 1 coin 1000 times with Head (0) or Tails (1):");
 
-                //var message = CoinFlip.Heads;
                 for (var i = 1; i <= 1000; i++)
                 {
-                    var rnd = random.Next(0, 2); // https://msdn.microsoft.com/en-us/library/2dx6wyd4 - the upper bound is scluded, this will randomly produce one of these values: 0, 1                  
-
-                    //var message = rnd == 0 ? "Heads" : "Tails";
-
-                    var intValue = rnd == 0 ? "0" : "1";
-
-                    //console print detailed flipping result
-                    CoinFlip coinValue = (CoinFlip)Enum.Parse(typeof(CoinFlip), intValue.ToString());
+                    var rnd = random.Next(0, 2); // https://msdn.microsoft.com/en-us/library/2dx6wyd4 - the upper bound is scluded, this will randomly produce one of these values: 0, 1                                                              
+                    var coinValue = (CoinFlip) rnd;
                    
-                    //Console.WriteLine(int.Parse(i.ToString() + "," + message));
-                    Console.WriteLine(intValue + "," + coinValue.ToString() );
+                    //console print detailed flipping result   
+                    Console.WriteLine(i.ToString() + "," + coinValue.ToString());
+                   
                     //file print detailed flipping result
+                    flippingresults.WriteLine(i.ToString() + "," + coinValue.ToString());
 
-                    flippingresults.WriteLine(intValue + "," + coinValue.ToString());
-                    //flippingresults.WriteLine(i.ToString() + "," + message);
-
-                    if (rnd == 0)
+                    if (Heads == coinValue)
                         heads = heads + 1;
                     else
                         tails = tails + 1;

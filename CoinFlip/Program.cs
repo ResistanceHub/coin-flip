@@ -37,23 +37,23 @@ namespace CoinFlip
                 {
                   var coinSide = (CoinFlip) FlipValue();
 
-                    Console.WriteLine(i + "," + coinSide);
+                    Console.WriteLine($"{i} , {coinSide}");
 
                     //file print detailed flipping result
-                    flippingresults.WriteLine(i + "," + coinSide);
-
+                    flippingresults.WriteLine($"{i} , {coinSide}");//string interpolation
+                  
                     if (heads == coinSide)
                         headsCount = headsCount + 1;
                     else
                         tailsCount = tailsCount + 1;
                 }
 
-                Console.WriteLine("Total Heads" + " " + headsCount);
-                Console.WriteLine("Total Tails" + " " + tailsCount);
+                Console.WriteLine($"Total Heads:  {headsCount}");
+                Console.WriteLine($"Total Tails:  {tailsCount}");
 
                 //file print total
-                flippingresults.WriteLine("Total Heads" + " " + headsCount);
-                flippingresults.WriteLine("Total Tails" + " " + tailsCount);
+                flippingresults.WriteLine($"Total Heads:  {headsCount}");
+                flippingresults.WriteLine($"Total Tails:  {tailsCount}");
             }
 
             Console.ReadKey();

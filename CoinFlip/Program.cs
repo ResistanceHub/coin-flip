@@ -6,78 +6,75 @@ using System.IO;
 namespace CoinFlip
 {
     public class Program
-    {  
+    {
         public enum Sides
         {
             Heads,
             Tails
         }
-
-        //This returns 1 random coin side 
-        static Random random = new Random();// put it out side of method to make one instance
-        static Sides Flip() // use enum type 
+        private static readonly Random random = new Random(); // put it out side of method to make one instance
+       
+        // This is to flip targeted times and obtain the random coin sides and add them into a list
+        public static List<Sides> FlipCoins(int flipNumber)
         {
-            var randomNumber = random.Next(0, 2);             //https://msdn.microsoft.com/en-us/library/2dx6wyd4
-            var randomCoinSide = (Sides)randomNumber;        //cast the randomNumber to enum type (ie. randomCoinSide)
-            return randomCoinSide;
-        }
-        static int HeadCount(List<Sides> sides)
-        {
-            var headCount = 0;
-            for (var i = 1; i <= sides.Count; i++)
+            var coinSides = new List<Sides>();
+            for (var i = 1; i <= flipNumber; i++)
             {
-                if (Sides.Heads == sides[i - 1])
-                   headCount = headCount + 1;
-             }
-            return headCount;
-        }
-
-        // This return 1000 random coin sides by adding them into a list
-        static List<Sides> FlipCoins()
-        {
-            List<Sides> coinSides = new List<Sides>();
-            for (var i = 1; i <= 1000; i++)
-            {
-                var randomCoinSide = Flip();
+                var randomNumber =
+                    random.Next(0, 2); //https://msdn.microsoft.com/en-us/library/2dx6wyd4 to create random number
+                var randomCoinSide =
+                    (Sides) randomNumber; //cast the randomNumber to enum type (ie. randomCoinSide)            
                 coinSides.Add(randomCoinSide);
             }
             return coinSides;
         }
-
-        static void Main(string[] args)
+        //this is to count total headCounts after targeted flip times
+        public static int HeadCount(List<Sides> sides)
         {
-            
-            var path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
+            var headsCount = 0;
+            for (var i = 1; i <= sides.Count; i++) {
+                if (Sides.Heads == sides[i - 1])
+                    headsCount = headsCount + 1;
+            }
+            return headsCount;
+        }
 
-            Console.WriteLine("Flip 1 coin 1000 times with Heads or Tails:");
-
-            //Print results          
-            using (var flippingresults = new StreamWriter(path))
+        //this is to save all info on the screen or  to a file
+        public static void Save(List<Sides> coinSides, int headsCount, int tailsCount)
+        { 
+            const string path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
+            using (var flipResults = new StreamWriter(path))  //save to a file 
             {
-                flippingresults.WriteLine("Flip 1 coin 1000 times with Head or Tails:");
+                Console.WriteLine($"Flip 1 coin {coinSides.Count} times with Head or Tails:");
+                flipResults.WriteLine($"Flip 1 coin {coinSides.Count} times with Head or Tails:");
 
-                var coinSidesResult = FlipCoins();
-                for (var i = 1; i <= 1000; i++)
+                for (var i = 1; i <= coinSides.Count; i++)
                 {
-                    //console print detailed flipping result from list
-                    Console.WriteLine($"{i} , {coinSidesResult[i - 1]}");//string interpolation
-                    
-                    //file print detailed flipping result from list
-                    flippingresults.WriteLine($"{i} ,  {coinSidesResult[i - 1]}");                
+                    //save to console - detailed flipping result from list
+                    Console.WriteLine($"{i} , {coinSides[i - 1]}"); //string interpolation
+
+                    //save to file-detailed flipping result from list
+                    flipResults.WriteLine($"{i} ,  {coinSides[i - 1]}");
                 }
 
-                var headsCountResult= HeadCount(coinSidesResult);
-                var tailsCountResult = coinSidesResult.Count - headsCountResult;
-
-                //console print total
-                Console.WriteLine($"Total Heads:  {headsCountResult}");
-                Console.WriteLine($"Total Tails:  {tailsCountResult}");
+                //save to console - total
+                Console.WriteLine($"Total Heads:  {headsCount}");
+                Console.WriteLine($"Total Tails:  {tailsCount}");
 
                 //file print total
-                flippingresults.WriteLine($"Total Heads:  {headsCountResult}");
-                flippingresults.WriteLine($"Total Tails:  {tailsCountResult}");
-            }
+                flipResults.WriteLine($"Total Heads:  {headsCount}");
+                flipResults.WriteLine($"Total Tails:  {tailsCount}");
 
+            }
+        }
+
+        static void Main(string[] args)
+        {          
+            const int flipNumber = 10;
+            var coinSidesResult = FlipCoins(flipNumber); //flip
+            var headsCountResult = HeadCount(coinSidesResult); //head count
+            var tailsCountResult = coinSidesResult.Count - headsCountResult; //tail count
+            Save(coinSidesResult, headsCountResult, tailsCountResult);  //save info to console or file
             Console.ReadKey();
         }
     }

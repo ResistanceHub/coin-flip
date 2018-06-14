@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 
 namespace CoinFlip
@@ -29,21 +30,27 @@ namespace CoinFlip
             return coinSides;
         }
         //this is to count total headCounts after targeted flip times
-        public static int HeadCount(List<Sides> sides, int ft)
+        public static int HeadCount(List<Sides> sides)
         {
-            var headsCount = 0;         
-            foreach (var coinSide in FlipCoins(ft))
-            {
-                if (Sides.Heads == coinSide)
-                    headsCount = headsCount + 1;
-            }         
-            return headsCount;           
+			// LINQ - Language, Integrated, Query
+//	        var headsOnly = sides.Where((element) => element == Sides.Heads);
+//	        return headsOnly.Count();
+
+	        return sides.Count((elem) => elem == Sides.Heads);
+
+//            var headsCount = 0;         
+//            foreach (var coinSide in sides)
+//            {
+//                if (Sides.Heads == coinSide)
+//                    headsCount = headsCount + 1;
+//            }         
+//            return headsCount;           
         }
 
         //this is to save all info on the screen or  to a file
         public static void Save(List<Sides> coinSides, int headsCount, int tailsCount)
         { 
-            const string path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
+            const string path = @"C:\src\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
             using (var flipResults = new StreamWriter(path))  //save to a file 
             {
                 Console.WriteLine($"Flip 1 coin {coinSides.Count} times with Head or Tails:");
@@ -74,7 +81,7 @@ namespace CoinFlip
             const int flipNumber = 1000;
             var ft = flipNumber;
             var coinSidesResult = FlipCoins(flipNumber); //flip
-            int headsCountResult = HeadCount(coinSidesResult,ft); //head count
+            int headsCountResult = HeadCount(coinSidesResult); //head count
             var tailsCountResult = coinSidesResult.Count - headsCountResult; //tail count
             Save(coinSidesResult, headsCountResult, tailsCountResult);  //save info to console or file
             Console.ReadKey();

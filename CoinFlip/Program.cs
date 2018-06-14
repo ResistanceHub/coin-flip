@@ -29,14 +29,15 @@ namespace CoinFlip
             return coinSides;
         }
         //this is to count total headCounts after targeted flip times
-        public static int HeadCount(List<Sides> sides)
+        public static int HeadCount(List<Sides> sides, int ft)
         {
-            var headsCount = 0;
-            for (var i = 1; i <= sides.Count; i++) {
-                if (Sides.Heads == sides[i - 1])
+            var headsCount = 0;         
+            foreach (var coinSide in FlipCoins(ft))
+            {
+                if (Sides.Heads == coinSide)
                     headsCount = headsCount + 1;
-            }
-            return headsCount;
+            }         
+            return headsCount;           
         }
 
         //this is to save all info on the screen or  to a file
@@ -71,8 +72,9 @@ namespace CoinFlip
         static void Main(string[] args)
         {          
             const int flipNumber = 1000;
+            var ft = flipNumber;
             var coinSidesResult = FlipCoins(flipNumber); //flip
-            var headsCountResult = HeadCount(coinSidesResult); //head count
+            int headsCountResult = HeadCount(coinSidesResult,ft); //head count
             var tailsCountResult = coinSidesResult.Count - headsCountResult; //tail count
             Save(coinSidesResult, headsCountResult, tailsCountResult);  //save info to console or file
             Console.ReadKey();

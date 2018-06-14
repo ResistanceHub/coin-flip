@@ -7,7 +7,7 @@ namespace CoinFlip
 {
     public class Program
     {
-        public enum Sides
+        public enum Sides //default value is started from 0
         {
             Heads,
             Tails
@@ -70,7 +70,7 @@ namespace CoinFlip
 
         static void Main(string[] args)
         {          
-            const int flipNumber = 10;
+            const int flipNumber = 1000;
             var coinSidesResult = FlipCoins(flipNumber); //flip
             var headsCountResult = HeadCount(coinSidesResult); //head count
             var tailsCountResult = coinSidesResult.Count - headsCountResult; //tail count

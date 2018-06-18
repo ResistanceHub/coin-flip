@@ -36,22 +36,23 @@ namespace CoinFlip
 //	        var headsOnly = sides.Where((element) => element == Sides.Heads);
 //	        return headsOnly.Count();
 
-	        return sides.Count((elem) => elem == Sides.Heads);
+	       // return sides.Count((elem) => elem == Sides.Heads);
 
-//            var headsCount = 0;         
-//            foreach (var coinSide in sides)
-//            {
-//                if (Sides.Heads == coinSide)
-//                    headsCount = headsCount + 1;
-//            }         
-//            return headsCount;           
+            var headsCount = 0;
+            foreach (var coinSide in sides)
+            {
+                if (Sides.Heads == coinSide)
+                    headsCount = headsCount + 1;
+            }
+            return headsCount;
         }
 
         //this is to save all info on the screen or  to a file
         public static void Save(List<Sides> coinSides, int headsCount, int tailsCount)
         { 
-            const string path = @"C:\src\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
-            using (var flipResults = new StreamWriter(path))  //save to a file 
+            const string path = @"C:\dev\coin-flip\CoinFlip\ping_flipping\coin_result.csv";
+            using (var flipResults = new StreamWriter(path)) 
+                //save to a file 
             {
                 Console.WriteLine($"Flip 1 coin {coinSides.Count} times with Head or Tails:");
                 flipResults.WriteLine($"Flip 1 coin {coinSides.Count} times with Head or Tails:");

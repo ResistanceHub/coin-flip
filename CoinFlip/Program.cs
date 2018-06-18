@@ -33,18 +33,11 @@ namespace CoinFlip
         public static int HeadCount(List<Sides> sides)
         {
 			// LINQ - Language, Integrated, Query
+
 //	        var headsOnly = sides.Where((element) => element == Sides.Heads);
 //	        return headsOnly.Count();
 
-	       // return sides.Count((elem) => elem == Sides.Heads);
-
-            var headsCount = 0;
-            foreach (var coinSide in sides)
-            {
-                if (Sides.Heads == coinSide)
-                    headsCount = headsCount + 1;
-            }
-            return headsCount;
+	       return sides.Count((elem) => elem == Sides.Heads);
         }
 
         //this is to save all info on the screen or  to a file

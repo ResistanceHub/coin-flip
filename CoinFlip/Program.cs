@@ -4,21 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoinFlip
+namespace FlippingCoins
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			Random random = new Random(); 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var Coins = 0;
+            Console.WriteLine("Enter number of coins to be flipped");
+            Coins = Convert.ToInt32(Console.ReadLine());
+            FlippingCoinFunction(Coins);
 
-			for (int i = 0; i < 5; i++)
-			{
-				int rnd = random.Next(0, 5); // https://msdn.microsoft.com/en-us/library/2dx6wyd4 - the upper bound is scluded, this will randomly produce one of these values: 0, 1, 2, 3, 4 - it will not produce 5
-				Console.WriteLine(i.ToString() + ' ' + rnd);
-			}
 
-			Console.ReadKey();
-		}
-	}
-}
+
+        }
+
+        static void FlippingCoinFunction(int Coin)
+        {
+            int Heads = 0;
+            int Tails = 0;
+            Random A = new Random();
+            for (int i = 0; i < Coin; i++)
+            {
+                if (A.Next(0, 2) == 0)
+                    Heads++;
+                else
+
+                    Tails++;
+            }
+
+            Console.WriteLine("No of Heads =" + Heads);
+            Console.WriteLine("No of Tails =" + Tails);
+            Console.ReadKey();
+
+        }
+
+    }
+

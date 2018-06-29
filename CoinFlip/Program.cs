@@ -12,55 +12,69 @@ namespace FlippingCoins
         static void Main(string[] args)
         {
             var Coins = 0;
-            int NoOfHeads = 0;
-            int NoOfTails = 0;
-
             Console.WriteLine("Enter number of coins to be flipped");
             Coins = Convert.ToInt32(Console.ReadLine());
-            NoOfHeads = FlippingCoinFunction(Coins);
-            NoOfTails = Coins-NoOfHeads;
-            WriteToFileFunction(NoOfHeads, NoOfTails);
-            Console.ReadKey();
+            FlippingCoinFunction(Coins);
+            ReadFromFile();
+            ClearContentsOfFile();
 
         }
 
-        static int FlippingCoinFunction(int Coin)
+        static void FlippingCoinFunction(int Coin)
         {
-            int Heads = 0;
-            int Tails = 0;
+            int Head = 0;
+            int Tail = 0;
             Random A = new Random();
-            for (int i = 0; i < Coin; i++)
+            List<string> iList = new List<string>();
+            for(int i =0;i<Coin;i++)
             {
                 if (A.Next(0, 2) == 0)
-                    Heads++;
+                {
+                    iList.Add("Heads");
+                    Head++;
+                }
                 else
-
-                    Tails++;
+                {
+                    iList.Add("Tails");
+                    Tail++;
+                }
+                    
             }
-
-            Console.WriteLine("No of Heads =" + Heads);
-            Console.WriteLine("No of Tails =" + Tails);
-            
-            return (Heads);
+            Console.WriteLine("Number of heads =" + Head);
+            Console.WriteLine("Number of tails =" + Tail);
+            WriteToFileFunction(iList , Coin);
+             
         }
 
-        static void WriteToFileFunction(int Heads, int Tails)
+        static void WriteToFileFunction(List<string> iList, int Coin)
         {
-            using (StreamWriter writetext = new StreamWriter("MyFile.txt"))
+            for (int i = 0; i < Coin; i++)
             {
-                writetext.WriteLine("Number of Heads = "+Heads +Environment.NewLine);
-                writetext.WriteLine("Number of Tails = " +Tails + Environment.NewLine);
+                using (var writetext = File.AppendText("MyNewFile.csv"))
+                {
+                    writetext.WriteLine("{0} , {1}", i + 1, iList.ElementAt(i) + Environment.NewLine);
+                }
             }
+        }
 
-            //reading from the file
-            using (StreamReader readtext = new StreamReader("MyFile.txt"))
+        static void ReadFromFile()
+        {
+        //reading from the file
+            using (StreamReader readtext = new StreamReader("MynewFile.csv"))
             {
                 string readMeText = readtext.ReadToEnd();
                 Console.WriteLine(readMeText);
+                Console.ReadKey();
             }
+            
         }
 
-
+        static void ClearContentsOfFile()
+        {
+            FileStream fileStream = File.Open("MynewFile.csv" , FileMode.Open);
+            fileStream.SetLength(0);
+            fileStream.Close();
+        }
     }
 
 }

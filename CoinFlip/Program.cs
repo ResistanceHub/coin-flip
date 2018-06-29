@@ -20,7 +20,7 @@ namespace FlippingCoins
             NoOfHeads = FlippingCoinFunction(Coins);
             NoOfTails = Coins-NoOfHeads;
             WriteToFileFunction(NoOfHeads, NoOfTails);
-
+            Console.ReadKey();
 
         }
 
@@ -40,7 +40,7 @@ namespace FlippingCoins
 
             Console.WriteLine("No of Heads =" + Heads);
             Console.WriteLine("No of Tails =" + Tails);
-            Console.ReadKey();
+            
             return (Heads);
         }
 
@@ -51,7 +51,15 @@ namespace FlippingCoins
                 writetext.WriteLine("Number of Heads = "+Heads +Environment.NewLine);
                 writetext.WriteLine("Number of Tails = " +Tails + Environment.NewLine);
             }
+
+            //reading from the file
+            using (StreamReader readtext = new StreamReader("MyFile.txt"))
+            {
+                string readMeText = readtext.ReadToEnd();
+                Console.WriteLine(readMeText);
+            }
         }
+
 
     }
 

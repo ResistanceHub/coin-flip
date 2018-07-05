@@ -9,7 +9,6 @@ namespace CoinFlip
             Heads,
             Tails
         }
-
        public static readonly Random Random = new Random();        
         static void Main(string[] args)
         {          

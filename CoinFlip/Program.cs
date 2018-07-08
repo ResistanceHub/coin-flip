@@ -14,8 +14,6 @@ namespace FlippingCoins
         Tails
     };
     
-        
-    
     class Program
     {
         static void Main(string[] args)
@@ -23,7 +21,6 @@ namespace FlippingCoins
             var Coins = 0;
             Console.WriteLine("Enter number of coins to be flipped");
             Coins = Convert.ToInt32(Console.ReadLine());
-            ClearContentsOfFile();
             FlippingCoinFunction(Coins);
             ReadFromFile();
             
@@ -54,17 +51,17 @@ namespace FlippingCoins
             }
             Console.WriteLine("Number of heads =" + Head);
             Console.WriteLine("Number of tails =" + Tail);
-            WriteToFileFunction(iList , Coin);
+            WriteToFileFunction(iList);
              
         }
 
-        static void WriteToFileFunction(List<string> iList, int Coin)                                                               //Writing results in the file
+        static void WriteToFileFunction(List<string> iList)                                                               //Writing results in the file
         {
-            for (int i = 0; i < Coin; i++)
+            using (var writetext = new StreamWriter("MyNewFile.csv"))
             {
-                using (var writetext = File.AppendText("MyNewFile.csv"))
+                foreach (var variable in iList)
                 {
-                    writetext.WriteLine("{0} , {1}", i + 1, iList.ElementAt(i) + Environment.NewLine);
+                    writetext.WriteLine("{0} ", variable  + Environment.NewLine);
                 }
             }
         }
@@ -78,13 +75,6 @@ namespace FlippingCoins
                 Console.ReadKey();
             }
             
-        }
-
-        static void ClearContentsOfFile()                                                                                           //Clearing the contents of file
-        {
-            FileStream fileStream = File.Open("MynewFile.csv" , FileMode.Open);
-            fileStream.SetLength(0);
-            fileStream.Close();
         }
     }
 

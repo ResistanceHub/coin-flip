@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinFlip", "CoinFlip\CoinFlip.csproj", "{B8EA50E2-6DA7-41E6-9C19-A371BF950E6A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8E8D570A-FB01-4CEC-843E-14A85D903848}"
+	ProjectSection(SolutionItems) = preProject
+		WriteInFile.cs = WriteInFile.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -13,19 +13,19 @@ namespace CoinFlip
         {
             int Head = 0;
             int Tail = 0;
-            Random A = new Random();
+            Random RandNo = new Random();
             var iList = new List<string>();
 
             for (int i = 0; i < Coin; i++)
             {
-                if (A.Next(0, 2) == 0)
+                if (RandNo.Next(0, 2) == 0)
                 {
-                    iList.Add(Enum.GetName(typeof(Result), 0));
+                    iList.Add(Result.Heads.ToString());
                     Head++;
                 }
                 else
                 {
-                    iList.Add(Enum.GetName(typeof(Result), 1));
+                    iList.Add(Result.Tails.ToString());
                     Tail++;
                 }
 

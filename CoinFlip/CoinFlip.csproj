@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
+    <Compile Include="ReadFrmFile.cs" />
+    <Compile Include="WriteInFile.cs" />
     <Compile Include="DeclareEnum.cs" />
     <Compile Include="FlipTheCoins.cs" />
     <Compile Include="Program.cs" />

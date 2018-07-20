@@ -18,8 +18,10 @@ namespace FlippingCoins
             var Coins = 0;
             Console.WriteLine("Enter number of coins to be flipped");
             Coins = Convert.ToInt32(Console.ReadLine());
-            FlipTheCoins.FlippingCoin(Coins);
-            ReadFrmFile.ReadFromFile();
+            var flipCoins = new FlipTheCoins();
+            var readFile = new ReadFrmFile();
+            flipCoins.FlippingCoin(Coins);
+            readFile.ReadFromFile();
         }
     }
 

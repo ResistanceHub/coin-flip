@@ -9,7 +9,7 @@ namespace CoinFlip
 {
     class ReadFrmFile
     {
-        public static void ReadFromFile()                                                                                                  //Reading from file on Console
+        public void ReadFromFile()                                                                                                  //Reading from file on Console
         {
             using (StreamReader readtext = new StreamReader("MynewFile.csv"))
             {
